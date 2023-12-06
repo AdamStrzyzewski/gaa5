@@ -1,0 +1,38 @@
+/* selektor {
+            propertyName: propertyValue;
+            propertyName2: propertyValue2;
+            propertyName3: propertyValue3;
+        } */
+        
+p {
+  color: orange;
+  background-color: black;
+  border: 3px solid green;
+}
+
+.font-red {
+  color: red;
+}
+
+.alert {
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+/* has both classes of alert and success */
+.alert.success {
+  background-color: greenyellow;
+  color: black;
+}
+
+.alert.warning {
+  background-color: yellow;
+  color: black;
+}
+
+.alert.error {
+  background-color: red;
+  color: black;
+}
