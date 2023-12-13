@@ -223,7 +223,7 @@ console.log(message.includes("to")) // true
 console.log(message.includes("poland")) // false
 
 console.log(message.endsWith("bahamas!")) // true
-console.log(message.endsWith("poland!")) // true
+console.log(message.endsWith("poland!")) // false
 
 // in message replace first "to" with "in"
 console.log(message.replace("to", "in"))
