@@ -256,7 +256,7 @@ for (let i = 1; i <= 30; i += 1) {
 for (let i = 0; i < 10; i += 1) {
   for (let j = 0; j < 10; j += 1) {
     if (j === 3) {
-      break
+      break // natychmiastowo kończy pętlę w której się znajduje
     }
     console.log({ i, j })
   }
