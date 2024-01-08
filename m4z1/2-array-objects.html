@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use strict"
+
+      const books = [
+        {
+          title: "The Last Kingdom",
+          author: "Bernard Cornwell",
+          rating: 8.38,
+        },
+        {
+          title: "Beside Still Waters",
+          author: "Robert Sheckley",
+          rating: 8.51,
+        },
+        {
+          title: "Sen śmiesznego człowieka",
+          author: "Fiodor Dostojewski",
+          rating: 7.75,
+        },
+      ]
+
+      // console.log(books.length)
+      // console.log(books[0])
+      // console.log(books[0].title)
+
+      for (const book of books) {
+        console.log(book)
+      }
+
+      const bookNames = []
+
+      for (const book of books) {
+        bookNames.push(book.title)
+      }
+
+      console.log(bookNames)
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use strict"
+
+      function foo(a, b, c = 10, d = 20) {
+        console.log("foo", a, b, c, d)
+      }
+
+      foo(1, 2, 3)
+      foo(1, 2, undefined, 20)
+
+      function baz({ a, b, c = 10, d = 20, e = false }) {
+        console.log("baz", a, b, c, d, e)
+      }
+
+      function bar(options) {
+        const { a, b, c = 10, d = 20, e = false } = options
+        console.log("bar", a, b, c, d, e)
+      }
+
+      baz({ b: 2, a: 1, c: 20, e: 3213 })
+      baz({ a: 1, b: 2, d: 32543 })
+
+      bar({ a: 1, b: 2, d: 32 })
+
+      // log("wartosc", true, 15)
+      // log("wartosc", 15, true)
+      // log({ value: "wartosc", uppercase: true, fontSize: 15 })
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use strict"
+      const book = {
+        title: "The Last Kingdom",
+        author: "Bernard Cornwell",
+        genres: ["historical prose", "adventure"],
+        isPublic: true,
+        rating: 8.38,
+      }
+
+      // const title = book.title
+      // const authorName = book.author
+      // const pageCount = book.pageCount ? book.pageCount : 150
+      // const pageCountAlt = book.pageCount ? book.pageCount : 150
+
+      const {
+        title, // 17
+        author: authorName, // 18,
+        pageCount = 150, // 19,
+        pageCount: pageCountAlt = 150, // 20,
+      } = book
+
+      console.log(title, authorName, pageCount) // "The Last Kingdom"
+
+      console.log("-----------")
+
+      const books = [
+        {
+          title: "The Last Kingdom",
+          author: "Bernard Cornwell",
+          rating: 8.38,
+        },
+        {
+          title: "Beside Still Waters",
+          author: "Robert Sheckley",
+          rating: 8.51,
+        },
+      ]
+
+      // old way
+      // for (const book of books) {
+      //   console.log(book.title)
+      //   console.log(book.author)
+      //   console.log(book.rating)
+      // }
+
+      // new way in loop instruction
+      for (const { title: bookTitle, author, rating } of books) {
+        console.log(bookTitle)
+        console.log(author)
+        console.log(rating)
+      }
+
+      // new way in loop body
+
+      for (const book of books) {
+        const { title, author, rating } = book
+        console.log(title)
+        console.log(author)
+        console.log(rating)
+      }
+
+      console.log("------------")
+      const user = {
+        name: "Jacques Gluke",
+        tag: "jgluke",
+        stats: {
+          followers: 5603,
+          views: 4827,
+          likes: 1308,
+        },
+      }
+      // console.log(user.stats.views)
+      const {
+        name,
+        tag,
+        stats, // const stats = user.stats
+        stats: { followers, views, likes: upvotes },
+        // const followers = user.stats.followers
+        // const views = user.stats.views
+        // const upvotes = user.stats.likes
+      } = user
+      console.log(name)
+      console.log(tag)
+      console.log(stats)
+      console.log(followers)
+      console.log(views)
+      console.log(upvotes)
+    </script>
+  </head>
+  <body></body>
+</html>

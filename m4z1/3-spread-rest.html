@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use strict"
+      // ...
+
+      // spread
+
+      const temps = [14, -4, 25, 8, 11]
+      const nightTemps = [-10, -5, -3, -2, 5]
+
+      console.log(temps)
+
+      console.log(Math.max(temps))
+
+      console.log(Math.max(...temps)) // spread
+      // console.log(Math.max(14, -4, 25, 8, 11))
+
+      const reference = temps // reference not a copy
+      const copy = [...temps] // shallow copy
+      // const copy = [14, -4, 25, 8, 11]
+
+      temps.push(20)
+      console.log(reference)
+
+      console.log(copy)
+
+      const allTemps = [...temps, ...nightTemps]
+      // const allTemps = [14, -4, 25, 8, 11, -10, -5, -3, -2, 5]
+      console.log(allTemps)
+
+      console.log("-----------")
+      const first = {
+        a: 5,
+        b: 10,
+        c: 20,
+      }
+      const second = {
+        c: 15,
+      }
+
+      const third = {
+        ...first,
+        ...second,
+      }
+
+      // const third = {
+      //   a: first.a,
+      //   b: first.b,
+      //   c: first.c,
+      //   c: second.c,
+      // }
+
+      const fourth = {
+        ...second,
+        ...first,
+      }
+
+      // const fourth = {
+      //   c: second.c,
+      //   a: first.a,
+      //   b: first.b,
+      //   c: first.c,
+      // }
+
+      console.log(third) // c === 15
+      console.log(fourth) // c === 20
+
+      console.log("-----------")
+
+      // rest
+
+      // ...args
+      // ...rest
+      // ...r
+      function multiply(...args) {
+        let result = 1
+        for (const arg of args) {
+          result *= arg
+        }
+        return result
+      }
+
+      // result => 1 * 1
+      // result => 1 * 2
+      // => 2
+      console.log(multiply(1, 2)) // [1,2]
+
+      // result => 1 * 5
+      // result => 5 * 10
+      // result => 50 * 15
+      // => 750
+      console.log(multiply(5, 10, 15)) // [5,10,15]
+
+      console.log("-------")
+
+      function test(a, b, ...rest) {
+        console.log(a, b, rest)
+      }
+
+      test(5, 64, "a", "b", "c")
+      test(1, 10, "a")
+      test(3, 6)
+      test(5, 64, "a", "b", "c", 2, [1, 2, 3], { key: "value" })
+    </script>
+  </head>
+  <body></body>
+</html>
