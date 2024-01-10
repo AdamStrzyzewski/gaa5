@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use strict"
+      const arr = [3, 2, 5, 64, 3, 532, 12, 5, 53]
+
+      // cb(3, 0, arr)
+      // cb(2, 1, arr)
+      // cb(5, 2, arr)
+      // cb(64, 3, arr)
+      // ...
+      arr.forEach((elem, index, entireArray) => {
+        console.log(index)
+      })
+
+      const fancyLog = (value) => {
+        console.log("***********")
+        console.log(`******** ${value} *********`)
+        console.log("***********")
+      }
+
+      arr.forEach(fancyLog)
+
+      // "test".forEach(fancyLog) // error - nie ma takiej metody w stringach
+    </script>
+  </head>
+  <body></body>
+</html>

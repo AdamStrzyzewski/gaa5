@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use strict"
+
+      // without abstraction
+      for (let i = 1; i <= 10; i += 1) {
+        const isEven = i % 2 === 0
+        if (isEven) {
+          console.log(`${i} is even`)
+        } else {
+          console.log(`${i} is odd`)
+        }
+      }
+
+      // with abstraction
+      console.log("------Abstraction------")
+      function logEvenOrOdd(n) {
+        const isEven = n % 2 === 0
+        if (isEven) {
+          console.log(`${n} is even`)
+        } else {
+          console.log(`${n} is odd`)
+        }
+      }
+
+      for (let i = 1; i <= 10; i += 1) {
+        logEvenOrOdd(i)
+        // logEvenOrOdd(1)
+        // logEvenOrOdd(2)
+        // logEvenOrOdd(3)
+        // logEvenOrOdd(4)
+        // logEvenOrOdd(5)
+        // logEvenOrOdd(6)
+        // logEvenOrOdd(7)
+        // logEvenOrOdd(8)
+        // logEvenOrOdd(9)
+        // logEvenOrOdd(10)
+      }
+
+      logEvenOrOdd(239)
+    </script>
+  </head>
+  <body></body>
+</html>

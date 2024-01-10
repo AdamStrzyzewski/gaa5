@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use strict"
+
+      // a i b - parametry funkcji
+      function multiplyClassic(a, b) {
+        return a * b
+      }
+
+      // => - fat arrow
+      // -> - thin/lean arrow (not in js)
+      const multiplyArrow = (a, b) => {
+        console.log("multiply")
+        return a * b // explicit return / jawny zwrot
+      }
+
+      const multiplyArrowInexplicitReturn = (a, b) => a * b // niejawny zwrot
+
+      // dla jednego parametru
+      // const square = n => n * n // this is okay
+      const square = (n) => n * n
+
+      // dla 0 parametrów
+      const doNothing = () => {
+        // nothing
+      }
+
+      // 5 i 34 to są argumenty przy wywołaniu
+      console.log(multiplyClassic(5, 34))
+      console.log(multiplyArrow(5, 34))
+
+      function foo(a, b, ...rest) {
+        console.log(arguments) // klasyczne podejście (nieco przestarzałe)
+        console.log(rest) // nowoczesne podejście
+      }
+
+      const bar = (a, b, ...rest) => {
+        // console.log(arguments) // nie istnieje w strzałkach => error
+        console.log(rest) // nowoczesne podejście
+      }
+
+      foo(1, 2, 3, 4, 4, 23, 2, 32, 2)
+      bar(1, 2, 3, 4, 4, 23, 2, 32, 2)
+    </script>
+  </head>
+  <body></body>
+</html>
