@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use strict"
+
+      const students = [
+        { name: "Mango", courses: ["matematyka", "fizyka"] },
+        { name: "Poly", courses: ["informatyka", "matematyka"] },
+        { name: "Kiwi", courses: ["fizyka", "biologia"] },
+      ]
+
+      const uniqueCourse = students // array
+        .flatMap((student) => student.courses) // array
+        .filter((course, index, arr) => arr.indexOf(course) === index) // array
+        .join(", ") // string
+        .toUpperCase() // string
+
+      // const unique = students.flatMap((student) => student.courses)
+      // const filtered = unique.filter(
+      //   (course, index, arr) => arr.indexOf(course) === index
+      // )
+      // const joined = filterd.join(", ")
+      // const upperCased = joined.toUpperCase()
+
+      console.log(uniqueCourse)
+    </script>
+  </head>
+  <body></body>
+</html>

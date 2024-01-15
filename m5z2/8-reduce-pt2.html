@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use strict"
+
+      const tweets = [
+        { id: "000", likes: 5, tags: ["js", "nodejs"] },
+        { id: "001", likes: 2, tags: ["html", "css"] },
+        { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+        { id: "003", likes: 8, tags: ["css", "react", "php"] },
+        { id: "004", likes: 0, tags: ["js", "nodejs", "html"] },
+      ]
+
+      // {
+      //  "js": X,
+      //  "nodejs": X,
+      //  "html": X,
+      //  "css": X,
+      //  "react": X
+      // }
+
+      const stats = tweets.reduce((acc, tweet) => {
+        tweet.tags.forEach((tag) => {
+          if (!acc[tag]) {
+            acc[tag] = 0
+          }
+          acc[tag] += 1
+        })
+        return acc
+      }, {})
+
+      console.log(stats)
+    </script>
+  </head>
+  <body></body>
+</html>

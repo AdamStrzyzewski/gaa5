@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use strict"
+
+      const students = [
+        { name: "Mango", score: 83 },
+        { name: "Poly", score: 59 },
+        { name: "Ajax", score: 37 },
+        { name: "Kiwi", score: 94 },
+        { name: "Houston", score: 64 },
+      ]
+
+      // const names = students.map((student) => student.name)
+      // destrukturyzacja, rest operator
+      const names = students.map(({ name }) => name)
+      console.log(names)
+    </script>
+  </head>
+  <body></body>
+</html>

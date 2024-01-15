@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use strict"
+      const arr = ["a", "b", "c", "d", "e"]
+      // console.log(arr)
+
+      arr.forEach((currentElement, indexOfElement, originalArr) => {
+        console.log(
+          `element o index: ${indexOfElement}, ma wartość ${currentElement}`
+        )
+        // console.log(originalArr) // stosunkowo rzadko używane
+      })
+
+      // cb
+      // cb("a", 0, arr)
+      // cb("b", 1, arr)
+      // cb("c", 2, arr)
+      // cb("d", 3, arr)
+      // cb("e", 4, arr)
+
+      const cb = (currentElement, indexOfElement, originalArr) => {
+        console.log(
+          `element o index: ${indexOfElement}, ma wartość ${currentElement}`
+        )
+        // console.log(originalArr) // stosunkowo rzadko używane
+      }
+
+      const result = arr.forEach(cb)
+      // cb("a", 0, arr)
+      // cb("b", 1, arr)
+      // cb("c", 2, arr)
+      // cb("d", 3, arr)
+      // cb("e", 4, arr)
+
+      console.log("linijka 40", result)
+
+      const foo = () => {
+        return "a"
+      }
+
+      // const foo = () => "a"
+
+      const baz = () => {
+        console.log("baz()")
+      }
+
+      const resultOfFoo = foo()
+      console.log(resultOfFoo)
+
+      const resultOfBaz = baz()
+      console.log(resultOfBaz)
+    </script>
+  </head>
+  <body></body>
+</html>

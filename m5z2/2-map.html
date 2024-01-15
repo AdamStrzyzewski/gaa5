@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use strict"
+      const letters = ["a", "b", "c", "d", "e"]
+      // ["A", "B", "C", "D","E"]
+
+      // --- without map
+      // const capitalLetters = []
+      // letters.forEach((letter) => {
+      //   capitalLetters.push(letter.toUpperCase())
+      // })
+
+      // --- with map and explicit return
+      // const capitalLetters = letters.map(
+      //   (letter, indexOfLetter, originalArray) => {
+      //     return letter.toUpperCase()
+      //   }
+      // )
+
+      // --- with map and implicit return, and no unused params
+      const capitalLetters = letters.map((letter) => letter.toUpperCase())
+
+      // map => [
+      //   cb("a", 0, letters),
+      //   cb("b", 1, letters),
+      //   cb("c", 2, letters),
+      //   cb("d", 3, letters),
+      //   cb("e", 4, letters),
+      // ]
+
+      console.log(capitalLetters)
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use strict"
+
+      const colorPickerOptions = [
+        { label: "red", color: "#F44336" },
+        { label: "green", color: "#4CAF50" },
+        { label: "blue", color: "#2196F3" },
+        { label: "pink", color: "#E91E63" },
+        { label: "indigo", color: "#3F51B5" },
+      ]
+
+      const redOption = colorPickerOptions.find(
+        (pickerOption, index, array) => pickerOption.label === "red"
+      )
+
+      const blueOption = colorPickerOptions.find(
+        ({ label }) => label === "blue"
+      )
+
+      const blueOptionIndex = colorPickerOptions.findIndex(
+        ({ label }) => label === "blue"
+      )
+
+      const silverOption = colorPickerOptions.find(
+        ({ label }) => label === "silver"
+      )
+
+      const silverOptionIndex = colorPickerOptions.findIndex(
+        ({ label }) => label === "silver"
+      )
+
+      console.log(redOption)
+      console.log(blueOption)
+      console.log(blueOptionIndex)
+      console.log(silverOption)
+      console.log(silverOptionIndex)
+    </script>
+  </head>
+  <body></body>
+</html>

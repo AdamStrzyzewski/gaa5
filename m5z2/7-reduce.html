@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use strict"
+
+      const numbers = [1, 52, 32, 6]
+
+      const total = numbers.reduce((acc, element, index, array) => {
+        return acc + element
+      }, 0)
+
+      // acc = 0
+      // 1 iteracja:
+      // acc = 0, element = 1 => acc + element
+
+      // acc = 1
+      // 2 iteracja
+      // acc = 1, element = 52 => acc + element (1 + 52)
+
+      // acc = 53
+      // 3 iteracja
+      // acc = 53, element = 32 => acc + element (53 + 32)
+
+      // acc = 85
+      // 4 iteracja
+      // acc = 85, element = 6 => acc + element (85 + 6) => 91
+      console.log(total)
+
+      const letters = ["a", "b", "c", "d", "e"]
+
+      const stringOfLetters = letters.reduce(
+        (acc, letter) => `${acc}${letter}`,
+        ""
+      )
+      console.log(stringOfLetters)
+      // const stringOfLetters = letters.reduce((acc, letter) => acc + letter, "") // konkatenacja
+
+      const students = [
+        { name: "Mango", score: 83 },
+        { name: "Poly", score: 59 },
+        { name: "Ajax", score: 37 },
+        { name: "Kiwi", score: 94 },
+        { name: "Houston", score: 64 },
+      ]
+
+      // const students = {
+      //   score: [
+      //     { name: "Mango", score: 83 },
+      //     { name: "Poly", score: 59 },
+      //     { name: "Ajax", score: 37 },
+      //     { name: "Kiwi", score: 94 },
+      //     { name: "Houston", score: 64 },
+      //   ],
+      // }
+
+      const totalScore = students.reduce((acc, { score }) => acc + score, 0)
+
+      console.log(totalScore)
+
+      const avgScore = totalScore / students.length
+
+      console.log(avgScore)
+    </script>
+  </head>
+  <body></body>
+</html>
