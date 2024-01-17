@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use strict"
+
+      const maciej = {
+        username: "Maciej",
+        showName() {
+          console.log(maciej.username)
+        },
+      }
+
+      maciej.showName()
+
+      function factoryUsername(username) {
+        return {
+          username,
+          showName() {
+            // console.log(this)
+            console.log(this.username)
+          },
+        }
+      }
+
+      const mateusz = factoryUsername("Mateusz Mateusz")
+
+      mateusz.showName()
+
+      const bookShelf = {
+        books: [],
+        getBooks() {
+          return this.books
+        },
+        addBook(bookTitle) {
+          this.books.push(bookTitle)
+        },
+      }
+
+      bookShelf.addBook("Gra Endera")
+      bookShelf.addBook("Wiedźmin")
+      console.log(bookShelf.getBooks())
+    </script>
+  </head>
+  <body></body>
+</html>

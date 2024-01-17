@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use strict"
+      const foo = () => {
+        console.log("this in foo() global", this) // global context, window
+      }
+
+      const hotel = {
+        name: "Resort Hotel",
+        showThis() {
+          const foo = () => {
+            console.log("this in foo()", this) // local context, hotel
+          }
+
+          foo()
+
+          console.log("this in showThis()", this) // local context, hotel
+        },
+      }
+
+      foo()
+      hotel.showThis()
+    </script>
+  </head>
+  <body></body>
+</html>

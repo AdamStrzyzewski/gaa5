@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use strict"
+
+      const showThis = () => {
+        console.log("inside of show this function", this) // window
+      }
+
+      showThis()
+
+      const user = {
+        username: "Apple",
+        showContext: showThis,
+        // showContext() {
+        //   console.log("inside of show this function", this)
+        // }
+      }
+
+      // user.showContext = showThis
+
+      user.showContext()
+    </script>
+  </head>
+  <body></body>
+</html>

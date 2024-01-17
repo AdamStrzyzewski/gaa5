@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const players = [
+        { name: "Mango", playtime: 1270, gamesPlayed: 4 },
+        { name: "Poly", playtime: 469, gamesPlayed: 2 },
+        { name: "Ajax", playtime: 690, gamesPlayed: 3 },
+        { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
+      ]
+      // Change code below this line
+
+      const totalAveragePlaytimePerGame = players.reduce(
+        (acc, { playtime, gamesPlayed }) => acc + playtime / gamesPlayed,
+        0
+      )
+
+      //   acc === 0
+      // return acc + averagePlaytimePerGame
+      // 0 + 1270 / 4
+      // acc + 469 / 2
+      // acc + 690 / 3
+      // acc + 241 / 1
+
+      console.log(totalAveragePlaytimePerGame)
+
+      // Change code below this line
+
+      const totalAveragePlaytimePerGame2 = players.reduce(
+        (accumulator, player) => {
+          const averagePlaytimePerGame =
+            player.playtime / player.gamesPlayed / 60
+          // DRY
+          // Don't repeat yourself
+
+          player.averageTime = averagePlaytimePerGame
+          return accumulator + averagePlaytimePerGame
+        },
+        0
+      )
+
+      // Change code above this line
+
+      console.log(totalAveragePlaytimePerGame2)
+      console.log(players)
+
+      // KISS
+      // Keep it simple stupid
+    </script>
+  </head>
+  <body></body>
+</html>
