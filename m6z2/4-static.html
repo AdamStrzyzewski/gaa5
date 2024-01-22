@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      "use strict"
+
+      class User {
+        // static props
+        static Roles = {
+          ADMIN: "admin",
+          EDITOR: "editor",
+        }
+
+        static isValidRole(role) {
+          // "viewer" is within ["admin", "editor"]
+          if (Object.values(User.Roles).includes(role)) {
+            return true
+          } else {
+            return false
+          }
+        }
+
+        #username
+        #role
+        constructor({ username, role }) {
+          this.#username = username
+          this.role = role
+        }
+
+        set role(newRole) {
+          if (User.isValidRole(newRole)) {
+            this.#role = newRole
+          } else {
+            throw new Error("not a valid role")
+          }
+        }
+      }
+
+      const mango = new User({ username: "Mango", role: User.Roles.ADMIN }) // => success
+      // const mango = new User({ username: "Mango", role: "viewer" }) // => error
+      console.log(mango) // instance of class User
+
+      console.log(User.isValidRole("admin"))
+      console.log(User.isValidRole("viewer"))
+
+      // mango.role = "viewer" // set role("viewer") => error
+    </script>
+    <style>
+      html {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      "use strict"
+
+      class User {
+        name // public property declaration (non-mandatory)
+        #email // private property declaration (mandatory)
+
+        constructor({ name, email }) {
+          this.name = name // public property
+          this.#email = email
+        }
+
+        getEmail() {
+          return this.#email
+        }
+
+        setEmail(newEmail) {
+          if (newEmail.includes("@")) {
+            this.#email = newEmail
+          } else {
+            throw new Error("Email does not contain '@'")
+          }
+        }
+      }
+
+      const mango = new User({ name: "Mango", email: "mango@gmail.com" })
+
+      console.log(mango)
+      mango.name = "coś innego"
+      // mango.#email = "nie email" // not possible, errror
+      console.log(mango.name)
+      // console.log(mango.#email) // throws error
+      // mango.setEmail("nie email") // error
+      mango.setEmail("test@test.pl") // success
+      console.log(mango.getEmail())
+    </script>
+    <style>
+      html {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

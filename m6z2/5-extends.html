@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      "use strict"
+
+      class Vehicle {
+        #topSpeed
+
+        constructor(name, topSpeed) {
+          this.name = name
+          this.#topSpeed = topSpeed
+        }
+
+        get topSpeed() {
+          return `${this.#topSpeed} km/h`
+        }
+      }
+
+      // child class Car, parent class Vehicle
+      class Car extends Vehicle {
+        constructor(gear, name, topSpeed) {
+          super(name, topSpeed) // Vehicle.constructor / calling constructor from parent class
+          this.gear = gear
+        }
+
+        changeGear(gear) {
+          this.gear = gear
+          console.log(this.name, "is now in", gear)
+        }
+      }
+
+      // child class Bicycle, parent class Vehicle
+      class Bicycle extends Vehicle {
+        pedalForward() {
+          console.log(this.name, "is going forward")
+        }
+      }
+
+      const kross = new Bicycle("Kross", 50)
+      const skoda = new Car("Fabia", 180)
+
+      console.log(kross.topSpeed)
+      console.log(skoda)
+
+      skoda.changeGear(2)
+      kross.pedalForward()
+      // kross.changeGear(1) error
+    </script>
+    <style>
+      html {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

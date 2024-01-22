@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      "use strict"
+
+      // function user(name, email) {
+      //   return {
+      //     name,
+      //     email,
+      //     getEmail() {
+      //       return this.email
+      //     },
+      //   }
+      // }
+      // const mango = user("Mango")
+
+      class User {
+        // body of class
+        constructor({ name, email }) {
+          this.name = name // instance public property
+          this.email = email // instance public property
+          // returns instance
+        }
+
+        getEmail() {
+          return this.email
+        }
+
+        changeEmail(newEmail) {
+          this.email = newEmail
+        }
+      }
+
+      const mango = new User({ name: "Mango", email: "mango@test.pl" }) // { name: "Mango" }
+      console.log(mango)
+
+      const poly = new User({ name: "Poly", email: "poly@test.pl" }) // { name: "Poly"}
+      console.log(poly)
+
+      console.log(mango.name)
+      console.log(poly.name)
+
+      mango.changeEmail("newEmail@test.pl")
+      console.log(mango.getEmail())
+      console.log(poly.getEmail())
+    </script>
+    <style>
+      html {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

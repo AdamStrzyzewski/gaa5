@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      "use strict"
+
+      class User {
+        name // public property declaration (non-mandatory)
+        #email // private property declaration (mandatory)
+
+        constructor({ name, email }) {
+          this.name = name // public property
+          this.#email = email // private property
+        }
+
+        get name() {
+          return this.name
+        }
+
+        get email() {
+          console.log("getter of email")
+          return this.#email.toUpperCase()
+        }
+
+        set email(newEmail) {
+          if (newEmail.includes("@")) {
+            this.#email = newEmail
+          } else {
+            throw new Error("No @ in new email")
+          }
+        }
+
+        // poor practice
+        // get alias() {
+        //   console.log("getter of alias")
+        //   return this.#email.toUpperCase()
+        // }
+      }
+
+      const mango = new User({ name: "Mango", email: "mango@gmail.com" })
+
+      // mango.email = "test" // set email("test") => throw Error
+      mango.email = "test@test.pl" // set email("test@test.pl")
+      // console.log(mango.#email) // error
+      console.log(mango.email) // get email()
+      // console.log(mango.alias) // get alias()
+    </script>
+    <style>
+      html {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>
