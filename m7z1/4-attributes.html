@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img
+      class="image"
+      src="https://picsum.photos/id/15/320/240"
+      alt="Rocks and waterfall"
+      width="300"
+      custom="hello world"
+      data-photo-number="15"
+    />
+    <script>
+      // classic attributes
+      const img = document.querySelector(".image")
+      console.log(img.attributes)
+      console.log(img.hasAttribute("src")) // true
+      console.log(img.getAttribute("width")) // "300"
+      img.setAttribute("alt", "Amazing nature")
+      console.log(img.custom) // undefined
+      console.log(img.getAttribute("custom")) // "Hello World"
+
+      // data attributes
+      console.log(img.dataset)
+      // photo-number => photoNumber
+      img.dataset.photoNumber = "16"
+      console.log(img.dataset.photoNumber)
+    </script>
+  </body>
+</html>

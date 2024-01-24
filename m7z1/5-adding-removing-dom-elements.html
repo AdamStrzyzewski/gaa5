@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <article class="article">
+      <p>paragraf</p>
+    </article>
+    <script>
+      const newHeader = document.createElement("h1")
+      newHeader.textContent = "Nowy nagłówek"
+
+      const span = document.createElement("span")
+      span.textContent = " jestem spanem "
+      newHeader.append(span) // this is okay
+      // newHeader.prepend(span) // this is okay
+
+      // newHeader.after(span) // this is wrong (because header is not on the site yet)
+      // newHeader.before(span) // this is wrong (because header is not on the site yet)
+
+      const image = document.createElement("img")
+      image.src = "https://picsum.photos/id/15/320/240"
+      image.alt = "Picture of nature"
+
+      // console.log(newHeader)
+
+      const article = document.querySelector(".article")
+      article.append(newHeader, image) // ...rest // adds after children (as children)
+      // article.prepend(newHeader, image) //  adds before children (as children)
+      // article.after(newHeader, image) //  adds after element (siblings)
+      // article.before(newHeader, image) //  adds before element (siblings)
+
+      // document.body.append(newHeader)
+
+      // article.remove() // removes an element and its children
+    </script>
+  </body>
+</html>

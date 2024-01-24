@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="menu" class="menu">
+      <li class="menu-item">home</li>
+      <li class="menu-item">about</li>
+      <li class="menu-item">gallery</li>
+      <li>blog</li>
+    </ul>
+    <script>
+      // document.querySelector
+      // element ===
+
+      const list = document.querySelector("#menu") // one element with id = "menu"
+      console.log(list)
+
+      const elements = list.querySelectorAll(".menu-item") // all elements with class "menu-item"
+
+      console.log(elements)
+
+      list.style.textTransform = "uppercase"
+
+      const firstElement = elements[0]
+      console.log(firstElement)
+      firstElement.style.color = "red"
+    </script>
+  </body>
+</html>

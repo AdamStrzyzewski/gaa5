@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Header 1</h1>
+    <ul>
+      <li>
+        <span>pierwszy</span>
+        <a href="google.com">link</a>
+        <p>paragraf</p>
+      </li>
+      <!-- node li -->
+      <li>
+        <span>drugi</span>
+        <a href="google.com">link</a>
+        <p>paragraf</p>
+      </li>
+      <li>
+        <span>trzeci</span>
+        <a href="google.com">link</a>
+        <p>paragraf</p>
+      </li>
+    </ul>
+
+    <script>
+      // console.log(window)
+      console.log(document) // === window.document
+
+      console.log(document.body)
+
+      const list = document.querySelector("ul")
+
+      console.log(list)
+      console.log(list.children) // dzieci
+      console.log(list.childNodes) // potomków
+    </script>
+  </body>
+</html>

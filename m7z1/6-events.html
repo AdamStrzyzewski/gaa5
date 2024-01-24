@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="https://google.com">Link</a>
+    <button class="my-button" type="button">Kliknij mnie</button>
+    <script>
+      const btn = document.querySelector(".my-button")
+
+      let i = 0
+
+      const btnHandler = () => {
+        console.log("arrow", this)
+        document.body.style.backgroundColor = "yellow"
+        const p = document.createElement("span")
+        p.textContent = `${i} `
+        document.body.append(p)
+        i++
+      }
+
+      function btnHandler2() {
+        console.log("classic", this)
+        document.body.style.backgroundColor = "red"
+        const p = document.createElement("span")
+        p.textContent = `${i} `
+        document.body.append(p)
+        i++
+      }
+
+      btn.addEventListener("click", btnHandler, {})
+      btn.addEventListener("click", btnHandler2, {})
+
+      // can't remove anonymous callback
+      // btn.removeEventListener("click", btnHandler2)
+    </script>
+  </body>
+</html>

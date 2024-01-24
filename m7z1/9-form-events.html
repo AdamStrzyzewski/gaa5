@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="login-form">
+      <input id="input-login" type="text" name="login" placeholder="login" />
+      <input type="password" name="password" placeholder="password" />
+      <button type="submit">Zaloguj się</button>
+    </form>
+
+    <script>
+      "use strict"
+
+      const form = document.querySelector("#login-form")
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault()
+
+        const form = event.target
+        const login = form.elements.login.value
+        const password = form.elements.password.value
+
+        form.reset()
+        console.log({ login, password })
+      })
+
+      const login = document.querySelector("#input-login")
+
+      // login.addEventListener("change", function (event) {
+      //   // console.log(event.target)
+      //   event.target.value = event.target.value.toUpperCase()
+      // })
+
+      login.addEventListener("input", function (event) {
+        // console.log(event.target)
+        event.target.value = event.target.value // m-ango
+          .toUpperCase() // M-ANGO
+          .replaceAll("-", "") // MANGO
+          .split("") // ["M","A","N","G","O"]
+          .join("-") // M-A-N-G-O
+      })
+
+      login.addEventListener("focus", function (event) {
+        event.target.style.fontSize = "40px"
+      })
+
+      login.addEventListener("blur", function (event) {
+        event.target.style.fontSize = "16px"
+      })
+
+      login.focus()
+      login.blur()
+    </script>
+  </body>
+</html>

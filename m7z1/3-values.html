@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img
+      class="image"
+      src="https://picsum.photos/id/9/320/240"
+      alt="A laptop"
+      width="300"
+    />
+
+    <article class="article">
+      <h2 class="article-title">Welcome to Hawaii!</h2>
+      <p class="article-text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
+        quaerat nemo veritatis quasi eius eum aliquid, nobis dolore nisi, magnam
+        eaque iusto, necessitatibus atque laborum quam tempora ducimus dicta
+        ipsam.
+      </p>
+    </article>
+
+    <script>
+      const photos = [
+        "https://picsum.photos/id/12/640/480",
+        "https://picsum.photos/id/13/640/480",
+        "https://picsum.photos/id/14/640/480",
+        "https://picsum.photos/id/15/640/480",
+        "https://picsum.photos/id/16/640/480",
+        "https://picsum.photos/id/17/640/480",
+      ]
+      // document.querySelector
+      // element ===
+
+      const image = document.querySelector(".image")
+      console.log(image.src)
+      console.log(image.alt)
+      const classArray = [...image.classList] // psedotablica => tablica
+      console.log(classArray.map((el) => el)) // pseudotablicach
+
+      image.src = photos[Math.floor(Math.random() * (photos.length + 1))]
+
+      const paragraph = document.querySelector(".article-text")
+      // paragraph.textContent = "Coś innego"
+      console.log(paragraph.textContent)
+
+      const article = document.querySelector(".article")
+
+      console.log(article.classList.contains("article")) // true
+      article.classList.add("nowa-klasa")
+      article.classList.remove("article")
+      article.classList.toggle("nowa-klasa")
+      console.log(article.classList.contains("nowa-klasa")) // false
+      article.classList.toggle("nowa-klasa")
+      console.log(article.classList.contains("nowa-klasa")) // true
+      article.classList.replace("nowa-klasa", "jeszcze-nowsza-klasa")
+
+      // background-color in css
+      paragraph.style.backgroundColor = "teal"
+      // font-size in css
+      paragraph.style.fontSize = "24px"
+
+      console.log(paragraph.style)
+    </script>
+  </body>
+</html>
