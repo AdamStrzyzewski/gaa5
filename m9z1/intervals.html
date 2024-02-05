@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button data-stop>STOP</button>
+    <script>
+      //   const p = document.createElement("p")
+      //   p.textContent = "1"
+      //   document.body.prepend(p)
+
+      // setInterval
+      // mili - 1 tysięczna czegoś
+      // 1000ml = 1l
+      // 1000 ms === 1s
+      // 60s === 1m
+
+      // 1000 * 60 * 60 * 3 (ms/s/m/h)
+
+      let counter = 0
+
+      const intervalId = setInterval(() => {
+        const span = document.createElement("span")
+        span.textContent = `${counter} `
+        document.body.append(span)
+
+        counter += 1
+        // if (counter === 5) {
+        //   clearInterval(intervalId)
+        // }
+      }, 200)
+
+      console.log(intervalId)
+
+      const stopBtn = document.querySelector("button[data-stop]")
+
+      // startBtn.addEventListener("click", ()=>{
+      //    intervalId = (()=>{}, 1000)
+      // })
+
+      stopBtn.addEventListener("click", () => {
+        clearInterval(intervalId)
+      })
+
+      // clearInterval(intervalId)
+    </script>
+  </body>
+</html>

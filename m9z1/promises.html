@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // executor
+      // console.log(new Promise(() => {}))
+
+      const promise = new Promise((resolve, reject) => {
+        // function() {}
+        setTimeout(() => {
+          // 0 - 1
+          if (Math.random() > 0.5) {
+            // 50%
+            // fulfilled
+            resolve({ msg: "You won" }) // return
+            // resolve(2 + 2) // return 2 + 2
+          } else {
+            // rejected
+            reject({ msg: "You were unlucky" }) // throw new Error
+          }
+        }, 2000)
+      })
+
+      console.log(promise)
+
+      promise
+        .then((response) => {
+          console.log("[SUCCESS]", response) // fulfilled / resolved
+        })
+        .catch((err) => {
+          console.log("[ERROR]", err) // rejected
+        })
+      // non-mandatory
+      // .finally(() => {
+      //   console.log("I always run")
+      // })
+    </script>
+  </body>
+</html>
