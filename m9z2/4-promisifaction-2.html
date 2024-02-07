@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const onFetchSuccess = (user) => {
+        console.log(user)
+      }
+
+      const onFetchError = (error) => {
+        console.log(error.message)
+      }
+
+      const fetchUserFromServerPromisified = (username) => {
+        console.log("Start to fetch data in a promise way", username)
+        const isSuccess = false
+        if (isSuccess) {
+          return Promise.resolve({ username, age: 27, nationality: "pl" })
+          // shortcut for
+          // return new Promise((resolve) => {
+          //   resolve({ username, age: 27, nationality: "pl" })
+          // })
+        } else {
+          return Promise.reject({ error: true, message: "User not found" })
+          // shortcut for
+          // return new Promise((resolve, reject) => {
+          //   reject({ error: true, message: "User not found" })
+          // })
+        }
+      }
+
+      fetchUserFromServerPromisified("Adam")
+        .then(onFetchSuccess)
+        .catch(onFetchError)
+    </script>
+  </body>
+</html>

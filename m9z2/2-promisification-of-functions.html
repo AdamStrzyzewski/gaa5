@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const onFetchSuccess = (user) => {
+        console.log(user)
+      }
+
+      const onFetchError = (error) => {
+        console.log(error.message)
+      }
+
+      const fetchUserFromServerCallback = (username, onSuccess, onError) => {
+        console.log("Start to fetch data", username)
+
+        setTimeout(() => {
+          const isSuccess = true
+
+          if (isSuccess) {
+            onSuccess({ username, age: 27, nationality: "pl" })
+          } else {
+            onError({ error: true, message: "User not found" })
+          }
+        }, 2000)
+      }
+
+      fetchUserFromServerCallback("Adam", onFetchSuccess, onFetchError)
+
+      const fetchUserFromServerPromisified = (username) => {
+        console.log("Start to fetch data in a promise way", username)
+        // executor function
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            const isSuccess = false
+
+            if (isSuccess) {
+              resolve({ username, age: 27, nationality: "pl" })
+            } else {
+              reject({ error: true, message: "User not found" })
+            }
+          }, 2000)
+        })
+      }
+
+      fetchUserFromServerPromisified("Adam")
+        .then(onFetchSuccess)
+        .catch(onFetchError)
+    </script>
+  </body>
+</html>

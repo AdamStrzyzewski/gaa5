@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const arrayOfPromises = [
+        new Promise((resolve) => {
+          setTimeout(() => resolve(1), 3000)
+        }),
+        new Promise((resolve) => {
+          setTimeout(() => resolve(2), 1000)
+        }),
+        new Promise((resolve) => {
+          setTimeout(() => resolve(3), 2000)
+        }),
+        new Promise((resolve) => {
+          setTimeout(() => resolve(4), 5000)
+        }),
+        new Promise((resolve) => {
+          setTimeout(() => resolve(5), 500)
+        }),
+        new Promise((resolve, reject) => {
+          setTimeout(() => reject("error message"), 1500)
+        }),
+      ]
+      console.log(arrayOfPromises)
+      // arrayOfPromises[0].then((result0) => {
+      //   console.log(result0)
+      // })
+      // arrayOfPromises[1].then((result1) => {
+      //   console.log(result1)
+      // })
+
+      Promise.all(arrayOfPromises)
+        .then((data) => {
+          console.log(data)
+        })
+        .catch((e) => {
+          console.log(e)
+        })
+
+      Promise.allSettled(arrayOfPromises).then((data) => {
+        console.log(data)
+      })
+
+      Promise.race(arrayOfPromises).then((raceResult) => {
+        console.log("raceResult", raceResult)
+      })
+    </script>
+  </body>
+</html>
