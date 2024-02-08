@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function classic(param1, param2) {
+        console.log({ param1, param2 })
+        return "anything"
+      }
+
+      const arrow = (param1, param2) => {
+        console.log({ param1, param2 })
+        return "anything"
+      }
+
+      function add(a, b) {
+        return a + b
+      }
+
+      const addArrow = (a, b) => a + b
+
+      //   const addArrow = (a, b) => {
+      //     return a + b
+      //   }
+
+      classic(1, 2)
+      arrow(3, 4)
+
+      console.log(add(50, 10))
+      console.log(addArrow(50, 10))
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const array = [1, 2, 3, 4, 5, 6, 7]
+
+      const arrayTimesTwo = array.map((n) => n * 2)
+      console.log(arrayTimesTwo)
+
+      // higher order function
+      function customMap(array, cb) {
+        const newArray = []
+        for (let i = 0; i < array.length; i += 1) {
+          newArray.push(cb(array[i]))
+          // (n) => n * 2
+          // array[0] -> 1 => 1 * 2 // 2
+          // array[1] -> 2 => 2 * 2 // 4
+          // ...
+        }
+
+        return newArray
+      }
+
+      const arrayTimesTwoCustom = customMap(array, (n) => n * 2)
+      const arrayTimesThreeCustom = customMap(array, (n) => n * 3)
+
+      console.log(arrayTimesTwoCustom)
+      console.log(arrayTimesThreeCustom)
+
+      const arr = [1, 2, 3]
+
+      // 1. czy potrzebuje zwrotnej wartości
+      // nie -> foreach
+      Array.foreach
+
+      // tak ->
+      Array.map // kopie tablicy ale zmodyfikowaną
+      Array.flatmap // tablica tablic, kiedy wynik dla pojedynczego elementu jest tablicą
+      Array.reduce // zwróci coś innego niż tablice / wynik sprowadzenia tablicy do wartości
+      Array.find // jeden element z tablicy wedle warunku
+      Array.filter // wiele elementów z tablicy wedle warunku
+
+      Array.sort // posortować kolejność
+    </script>
+  </body>
+</html>
