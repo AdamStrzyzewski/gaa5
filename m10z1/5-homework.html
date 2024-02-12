@@ -1,0 +1,64 @@
+<!-- https://restcountries.com/#endpoints-name -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="search-box" value="kore" />
+    <div id="country-box"></div>
+
+    <script>
+      "use strict"
+
+      const searchInput = document.querySelector("#search-box")
+      const countryBox = document.querySelector("#country-box")
+
+      async function fetchCountries(countryName) {
+        // add try...catch and alert
+        // add query params
+        const response = await fetch(
+          `https://restcountries.com/v3.1/name/${countryName}`
+        )
+        const countriesArray = await response.json()
+        return countriesArray
+      }
+
+      // searchInput.addEventListener("input", async function (e) { // every change in input for homework
+      searchInput.addEventListener("change", async function (e) {
+        // click away from input for testing
+        const userInputCountry = e.currentTarget.value
+        // const userInputCountry = searchInput.value
+        const countries = await fetchCountries(userInputCountry)
+
+        if (countries.length > 10) {
+          alert("Too many results") // instead of notiflix
+        } else if (countries.length > 1) {
+          // create a list
+          const list = document.createElement("ul")
+
+          const countriesElements = countries.map((country) => {
+            const listElement = document.createElement("li")
+
+            const flagImg = document.createElement("img")
+            flagImg.src = country.flags.svg
+            flagImg.width = 20
+
+            const countryNameSpan = document.createElement("span")
+            countryNameSpan.textContent = country.name.common
+
+            listElement.append(flagImg, countryNameSpan)
+            return listElement
+          })
+          list.append(...countriesElements)
+          countryBox.replaceChildren(list)
+        } else {
+          // create a single country view
+        }
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // fetch(url, options)
+
+      // const url =
+      //   "https://jsonplaceholder.typicode.com/users?_sort=name&_limit=7"
+
+      // {
+      //   _limit: 5,
+      //   _sort: "name",
+      // } => "_sort=name&_limit=7"
+      const searchParams = new URLSearchParams({
+        _limit: 5,
+        _sort: "name",
+      })
+
+      const url = `https://jsonplaceholder.typicode.com/users?${searchParams.toString()}`
+      // query params
+      // ?_sort=name
+      // ?key=value
+
+      // ?key=value&key2=value2
+      // ?_sort=name&_limit=7
+
+      const usersResponse = fetch(url, {
+        headers: {
+          "X-Custom-Header": "custom value",
+        },
+      }) // GET url
+
+      usersResponse
+        .then((response) => {
+          // data.status -> kod odpowiedzi
+          console.log(response)
+          return response.json() // promise
+        })
+        .then((users) => {
+          // rozwiązanie promisa zwróconego w linijce 20
+          console.log(users)
+          users.forEach((user) => {
+            console.log(user.name)
+          })
+        })
+        .catch((e) => {
+          console.log(e)
+        })
+    </script>
+  </body>
+</html>
